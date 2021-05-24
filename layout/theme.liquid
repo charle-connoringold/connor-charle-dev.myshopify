@@ -229,8 +229,7 @@
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
   </ul>
   {%- section 'go-cart' -%}
-  <!-- {{ 'gocart.js' | asset_url | script_tag }} -->
-  <script src="//cdn.shopify.com/s/files/1/0568/5015/3627/t/1/assets/gocart.js" type="text/javascript"></script>
+  {{ 'gocart.js' | asset_url | script_tag }}
 
   <script>
     new GoCart();
