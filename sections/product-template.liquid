@@ -154,8 +154,14 @@
 
           {% capture "form_classes" -%}
             product-form product-form-{{ section.id }}
-            {%- if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-button-no-variants {%- endif -%}
-            {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
+
+            {%- if section.settings.enable_payment_button and product.has_only_default_variant %} 
+              product-form--payment-button-no-variants
+            {%- endif -%}
+
+            {%- if current_variant.available == false %} 
+              product-form--variant-sold-out 
+            {%- endif -%}
           {%- endcapture %}
           
           {% capture "form_id" -%}
@@ -224,7 +230,7 @@
                 <button type="submit" name="add"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
+                  class="js-go-cart-add-to-cart btn product-form__cart-submit{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} btn--secondary-accent{% endif %}"
                   {% if settings.enable_ajax %}aria-haspopup="dialog"{% endif %}
                   data-add-to-cart>
                   <span data-add-to-cart-text>
